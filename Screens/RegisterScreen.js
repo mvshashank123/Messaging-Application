@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { KeyboardAvoidingView } from "react-native";
 import { Button, Input } from "react-native-elements";
@@ -9,6 +9,12 @@ const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerBackTitle: 'Back to Login',
+    });
+  }, [navigation])
 
   const register = () => {};
   return (
@@ -55,7 +61,18 @@ const RegisterScreen = ({ navigation }) => {
 export default RegisterScreen;
 
 const styles = StyleSheet.create({
-  container: {},
-  inputContainer: {},
-  button: {}
+  container: {
+    flex:1,
+    alignItems: "center",
+    justifyContent:'center',
+    padding: 10,
+    backgroundColor:"white",
+  },
+  inputContainer: {
+    width:300
+  },
+  button: {
+    width: 200,
+    marginTop:10,
+  }
 });
